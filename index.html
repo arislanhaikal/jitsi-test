@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--#include virtual="base.html" -->
 
-    <link rel="stylesheet" href="css/all.css?v=3387">
+    <link rel="stylesheet" href="css/all.css?v=3577">
 
     <script>
         // IE11 and earlier can be identified via their user agent and be
@@ -27,7 +27,7 @@
             "logging_config.js",
             "lib-jitsi-meet.min.js",
             "app.bundle.min.js",
-            "all.css?v=3387"
+            "all.css?v=3577"
         ];
         var loadErrHandler = function(e) {
             var target = e.target;
@@ -93,11 +93,14 @@
                         + "font-size:small;"
                         + "cursor: pointer'>" + showMoreText + "</a>"
                         + "&nbsp;&nbsp;&nbsp;"
-                        + "<a href='" + href + "' style='"
+                        + "<a id ='reloadLink' style='"
                         + "text-decoration: underline;"
                         + "font-size:small;"
                         + "'>reload now</a>"
                         + "</div>";
+
+                    var reloadLink = document.getElementById('reloadLink');
+                    reloadLink.setAttribute('href', href);
 
                     var showMoreElem = document.getElementById("showMore");
                     showMoreElem.addEventListener('click', function () {
@@ -140,8 +143,8 @@
     <script src="libs/do_external_connect.min.js?v=1"></script>
     <script><!--#include virtual="/interface_config.js" --></script>
     <script><!--#include virtual="/logging_config.js" --></script>
-    <script src="libs/lib-jitsi-meet.min.js?v=3387"></script>
-    <script src="libs/app.bundle.min.js?v=3387"></script>
+    <script src="libs/lib-jitsi-meet.min.js?v=3577"></script>
+    <script src="libs/app.bundle.min.js?v=3577"></script>
     <!--#include virtual="title.html" -->
     <!--#include virtual="plugin.head.html" -->
     <!--#include virtual="static/welcomePageAdditionalContent.html" -->

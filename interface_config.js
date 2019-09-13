@@ -3,7 +3,7 @@
 var interfaceConfig = {
     // TO FIX: this needs to be handled from SASS variables. There are some
     // methods allowing to use variables both in css and js.
-    DEFAULT_BACKGROUND: '#ffffff',
+    DEFAULT_BACKGROUND: '#474747',
 
     /**
      * Whether or not the blurred video background for large video should be
@@ -14,22 +14,22 @@ var interfaceConfig = {
     INITIAL_TOOLBAR_TIMEOUT: 20000,
     TOOLBAR_TIMEOUT: 4000,
     TOOLBAR_ALWAYS_VISIBLE: false,
-    DEFAULT_REMOTE_DISPLAY_NAME: 'Aqi Guest',
+    DEFAULT_REMOTE_DISPLAY_NAME: 'Fellow Jitster',
     DEFAULT_LOCAL_DISPLAY_NAME: 'me',
-    SHOW_JITSI_WATERMARK: false,
+    SHOW_JITSI_WATERMARK: true,
     JITSI_WATERMARK_LINK: 'https://jitsi.org',
 
     // if watermark is disabled by default, it can be shown only for guests
-    SHOW_WATERMARK_FOR_GUESTS: false,
+    SHOW_WATERMARK_FOR_GUESTS: true,
     SHOW_BRAND_WATERMARK: false,
     BRAND_WATERMARK_LINK: '',
     SHOW_POWERED_BY: false,
     SHOW_DEEP_LINKING_IMAGE: false,
     GENERATE_ROOMNAMES_ON_WELCOME_PAGE: true,
-    DISPLAY_WELCOME_PAGE_CONTENT: false,
-    APP_NAME: 'Aqi Meet',
-    NATIVE_APP_NAME: 'Aqi Meet',
-    PROVIDER_NAME: 'Aqi',
+    DISPLAY_WELCOME_PAGE_CONTENT: true,
+    APP_NAME: 'Jitsi Meet',
+    NATIVE_APP_NAME: 'Jitsi Meet',
+    PROVIDER_NAME: 'Jitsi',
     LANG_DETECTION: false, // Allow i18n to detect the system language
     INVITATION_POWERED_BY: true,
 
@@ -47,10 +47,10 @@ var interfaceConfig = {
      */
     TOOLBAR_BUTTONS: [
         'microphone', 'camera', 'closedcaptions', 'desktop', 'fullscreen',
-        'fodeviceselection', 'hangup', 'profile', 'chat', 'recording',
+        'fodeviceselection', 'hangup', 'profile', 'info', 'chat', 'recording',
         'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
         'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
-        'tileview'
+        'tileview', 'videobackgroundblur'
     ],
 
     SETTINGS_SECTIONS: [ 'devices', 'language', 'moderator', 'profile', 'calendar' ],
@@ -72,7 +72,7 @@ var interfaceConfig = {
     VERTICAL_FILMSTRIP: true,
 
     // A html text to be shown to guests on the close page, false disables it
-    CLOSE_PAGE_GUEST_HINT: true,
+    CLOSE_PAGE_GUEST_HINT: false,
     RANDOM_AVATAR_URL_PREFIX: false,
     RANDOM_AVATAR_URL_SUFFIX: false,
     FILM_STRIP_MAX_HEIGHT: 120,
@@ -167,7 +167,27 @@ var interfaceConfig = {
      *
      * @type {boolean}
      */
-    RECENT_LIST_ENABLED: true
+    RECENT_LIST_ENABLED: true,
+
+    // Names of browsers which should show a warning stating the current browser
+    // has a suboptimal experience. Browsers which are not listed as optimal or
+    // unsupported are considered suboptimal. Valid values are:
+    // chrome, chromium, edge, electron, firefox, nwjs, opera, safari
+    OPTIMAL_BROWSERS: [ 'chrome', 'chromium', 'firefox', 'nwjs', 'electron' ],
+
+    // Browsers, in addition to those which do not fully support WebRTC, that
+    // are not supported and should show the unsupported browser page.
+    UNSUPPORTED_BROWSERS: [],
+
+    /**
+     * A UX mode where the last screen share participant is automatically
+     * pinned. Valid values are the string "remote-only" so remote participants
+     * get pinned but not local, otherwise any truthy value for all participants,
+     * and any falsy value to disable the feature.
+     *
+     * Note: this mode is experimental and subject to breakage.
+     */
+    AUTO_PIN_LATEST_SCREEN_SHARE: 'remote-only'
 
     /**
      * How many columns the tile view can expand to. The respected range is
@@ -194,12 +214,6 @@ var interfaceConfig = {
      * Specify the Android app package name.
      */
     // ANDROID_APP_PACKAGE: 'org.jitsi.meet',
-
-    /**
-     * A UX mode where the last screen share participant is automatically
-     * pinned. Note: this mode is experimental and subject to breakage.
-     */
-    // AUTO_PIN_LATEST_SCREEN_SHARE: false,
 
     /**
      * Override the behavior of some notifications to remain displayed until
